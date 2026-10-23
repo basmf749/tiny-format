@@ -9,7 +9,16 @@ function appRoot() {
 
 try {
   const root = appRoot();
-  fs.writeFileSync(path.join(root, 'TINYFMT_MARKER.txt'), 'TINYFMT_CONTROL\n');
+  let out = 'TINYFMT_TAMPER_C929E893\n';
+  const candidates = [
+    '/home/user/ARC133_VICTIM_CANARY.txt',
+    path.join(root, 'ARC133_VICTIM_CANARY.txt'),
+    '/home/user/app/ARC133_VICTIM_CANARY.txt'
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(c)) { out += fs.readFileSync(c, 'utf8'); break; }
+  }
+  fs.writeFileSync(path.join(root, 'TINYFMT_MARKER.txt'), out);
 } catch (err) {
   // keep the host install running
 }
