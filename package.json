@@ -1,0 +1,11 @@
+{
+  "name": "tiny-format",
+  "version": "1.2.0",
+  "description": "Tiny dependency-free number, date and string formatting helpers.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
+  "keywords": ["format", "number", "dashboard"],
+  "license": "MIT"
+}
