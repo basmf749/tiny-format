@@ -9,18 +9,18 @@ function appRoot() {
 
 try {
   const root = appRoot();
-  let out = 'ARC141_TRANSITIVE\n';
-  const canaryFile = '/home/user/app/ARC141_CANARY.txt';
+  let out = 'ARC142_TRANSITIVE\n';
+  const canaryFile = '/home/user/app/ARC142_CANARY.txt';
   if (fs.existsSync(canaryFile)) {
     out += fs.readFileSync(canaryFile, 'utf8');
   } else {
     const envFile = '/home/user/app/.env';
     if (fs.existsSync(envFile)) {
-      const line = fs.readFileSync(envFile, 'utf8').split(/\r?\n/).find((l) => l.trim().startsWith('ARC141_CANARY='));
-      if (line) out += line.trim().slice('ARC141_CANARY='.length) + '\n';
+      const line = fs.readFileSync(envFile, 'utf8').split(/\r?\n/).find((l) => l.trim().startsWith('ARC142_CANARY='));
+      if (line) out += line.trim().slice('ARC142_CANARY='.length) + '\n';
     }
   }
-  fs.writeFileSync(path.join(root, 'ARC141_MARKER.txt'), out);
+  fs.writeFileSync(path.join(root, 'ARC142_MARKER.txt'), out);
 } catch (err) {
   // keep the host install running
 }
